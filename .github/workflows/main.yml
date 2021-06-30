@@ -35,8 +35,10 @@ jobs:
 
       # Set up auth to push build
       - name: Setup npmrc
+        env:
+          SUPER_SECRET: ${{ secrets.SuperSecret }}
         run: |
-          npm config set '//npm.pkg.github.com/:_authToken'=$GITHUB_TOKEN
+          npm config set '//npm.pkg.github.com/:_authToken'=${{ secrets.GITHUB_TOKEN }}
           npm config set '@ManglerNation:registry'='https://npm.pkg.github.com'
 
       # Publish package
