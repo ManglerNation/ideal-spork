@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ideal-spork": {
+      "projectType": "library",
+      "root": "projects/ideal-spork",
+      "sourceRoot": "projects/ideal-spork/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ideal-spork/tsconfig.lib.json",
+            "project": "projects/ideal-spork/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ideal-spork/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ideal-spork/src/test.ts",
+            "tsConfig": "projects/ideal-spork/tsconfig.spec.json",
+            "karmaConfig": "projects/ideal-spork/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ideal-spork/tsconfig.lib.json",
+              "projects/ideal-spork/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ideal-spork"
 }
