@@ -15,6 +15,7 @@ export class IdealSporkComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+	  const test = "test"
   }
 
 }
