@@ -31,7 +31,7 @@ jobs:
 
       # Build module
       - name: Build ng Library
-        run: ng build ideal-spork --configuration production
+        run: node_modules/@angular/cli/bin/ng build ideal-spork --configuration production
 
       # Set up auth to push build
       - name: Setup npmrc
