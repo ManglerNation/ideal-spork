@@ -1,6 +1,6 @@
-# This workflow tests PRs by running ng build, npm audit and ng lint
+# This workflow provides a passing validate_pr status for files that do not match the code
 
-name: Build, lint and check for vulnerabilities
+name: Skipping PR checks, no code changes
 
 # Controls when the workflow will run
 on:
@@ -12,9 +12,14 @@ on:
       - '**.md'
       - '.github/**'
       - '.*'
+    paths-ignore:
+      - '**.json'
+      - 'projects/**'
   
 jobs:
   # Create a blank, exit with success "validate_pr"
-  validate_pr: {}
+  validate_pr:
+    steps:
+      - name: Skip tests
 
 # Exit with success, giving successful "validate_pr" status check for files that do not apply to the code checks 
