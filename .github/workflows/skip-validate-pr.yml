@@ -7,11 +7,7 @@ on:
   # Triggers the workflow on pull request events for the master branch
   pull_request:
     branches: [ master ]
-    # Include packages known not to be part of the code
-    paths:
-      - '**.md'
-      - '.github/**'
-      - '.*'
+    # Exclude code, only skip on non-code files
     paths-ignore:
       - '**.json'
       - 'projects/**'
