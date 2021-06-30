@@ -28,20 +28,19 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-      
-        # Build module
-        - name: Build npm module
-          run: npm build ideal-spork --configuration production
 
-        # Set up auth to push build
-        - name: Setup npmrc
-          run: |
-            npm config set '//npm.pkg.github.com/:_authToken'=$GITHUB_TOKEN
-            npm config set '@ManglerNation:registry'='https://npm.pkg.github.com'
+      # Build module
+      - name: Build npm module
+        run: npm build ideal-spork --configuration production
 
+      # Set up auth to push build
+      - name: Setup npmrc
+        run: |
+          npm config set '//npm.pkg.github.com/:_authToken'=$GITHUB_TOKEN
+          npm config set '@ManglerNation:registry'='https://npm.pkg.github.com'
 
-        # Publish package
-        - name: Publish Package
-          run: |
-            cd dist/ideal-spork
-            npm publish
+      # Publish package
+      - name: Publish Package
+        run: |
+          cd dist/ideal-spork
+          npm publish
