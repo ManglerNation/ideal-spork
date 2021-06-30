@@ -7,8 +7,7 @@ on:
   # Triggers the workflow only for the master branch
   push:
     branches: [ master ]
-  # Only runs when npm/ng json files and projects directory are modified
-  push:
+    # Only runs when npm/ng json files and projects directory are modified
     paths:
       - '*.json'
       - 'projects/**'
