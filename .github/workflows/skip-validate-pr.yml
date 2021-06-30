@@ -15,7 +15,10 @@ on:
 jobs:
   # Create a blank, exit with success "validate_pr"
   validate_pr:
+    runs-on: ubuntu-latest
     steps:
       - name: Skip tests
+        run: echo skipping...
+      
 
 # Exit with success, giving successful "validate_pr" status check for files that do not apply to the code checks 
