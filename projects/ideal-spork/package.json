@@ -1,6 +1,7 @@
 {
-  "name": "ideal-spork",
+  "name": "@ManglerNation/ideal-spork",
   "version": "0.0.1",
+  "repository": "git@github.com:ManglerNation/ideal-spork.git",
   "peerDependencies": {
     "@angular/common": "^11.2.14",
     "@angular/core": "^11.2.14"
