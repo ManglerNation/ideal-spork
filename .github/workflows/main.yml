@@ -30,8 +30,8 @@ jobs:
       - run: npm install
 
       # Build module
-      - name: Build npm module
-        run: npm build ideal-spork --configuration production
+      - name: Build ng Library
+        run: ng build ideal-spork --configuration production
 
       # Set up auth to push build
       - name: Setup npmrc
@@ -40,7 +40,7 @@ jobs:
           npm config set '@ManglerNation:registry'='https://npm.pkg.github.com'
 
       # Publish package
-      - name: Publish Package
+      - name: Publish npm Package
         run: |
           cd dist/ideal-spork
           npm publish
