@@ -7,10 +7,11 @@ on:
   # Triggers the workflow on pull request events for the master branch
   pull_request:
     branches: [ master ]
-    # Only runs when npm/ng json files and projects directory are modified
-    paths:
-      - '*.json'
-      - 'projects/**'
+    # Exclude packages known not to be part of the code
+    paths-ignore:
+      - '**.md'
+      - '.github/**'
+      - '.*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
