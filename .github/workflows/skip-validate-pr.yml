@@ -1,0 +1,20 @@
+# This workflow tests PRs by running ng build, npm audit and ng lint
+
+name: Build, lint and check for vulnerabilities
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on pull request events for the master branch
+  pull_request:
+    branches: [ master ]
+    # Include packages known not to be part of the code
+    paths:
+      - '**.md'
+      - '.github/**'
+      - '.*'
+  
+jobs:
+  # Create a blank, exit with success "validate_pr"
+  validate_pr: {}
+
+# Exit with success, giving successful "validate_pr" status check for files that do not apply to the code checks 
