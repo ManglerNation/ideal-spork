@@ -1,12 +1,17 @@
-# This workflow tests PRs by running npm audit and ng lint
+# This workflow tests PRs by running ng build, npm audit and ng lint
 
-name: Lint code and run npm audit
+name: Build, lint and check for vulnerabilities
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on pull request events for the master branch
   pull_request:
     branches: [ master ]
+  # Only runs when npm/ng json files and projects directory are modified
+  push:
+    paths:
+      - '*.json'
+      - 'projects/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,6 +31,10 @@ jobs:
         with:
           node-version: 16
       - run: npm install
+
+      # Build Code
+      - name: Run ng build
+        run: node_modules/@angular/cli/bin/ng build --configure production
 
       # Lint Code
       - name: Run ng lint
