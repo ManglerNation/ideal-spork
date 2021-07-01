@@ -7,10 +7,10 @@ on:
   # Triggers the workflow only for the master branch
   push:
     branches: [ master ]
-    # Only runs when npm/ng json files and projects directory are modified
-    paths:
-      - '*.json'
-      - 'projects/**'
+    # Skip on directories starting with '.' and any Markdown files.
+    paths-ignore:
+      - '**/.*/**'
+      - '**.md'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
